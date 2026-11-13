@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan Arron & Intan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4A3B32;
+            --accent: #8C6D53;
+            --gold: #C5A059;
+            --cream: #F7F4EF;
+            --dark: #2C221E;
+            --card-bg: #FFFFFF;
+            --rust: #A35C3A;
+            --pine: #354F42;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .couple-names {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .script-font {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        /* Music Floating Button */
+        .music-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 50px;
+            height: 50px;
+            background: var(--rust);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        .music-btn.playing {
+            animation: spin 4s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Hero Section / Cover */
+        header {
+            height: 100vh;
+            background: linear-gradient(rgba(44, 34, 30, 0.5), rgba(44, 34, 30, 0.7)), url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .hero-top {
+            margin-top: 20px;
+        }
+        .hero-top h4 {
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #E6D5C3;
+        }
+
+        .hero-center {
+            max-width: 800px;
+        }
+        .hero-center h1 {
+            font-size: 4rem;
+            margin: 15px 0;
+            color: #FFF;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+        }
+        .hero-center .script-amp {
+            font-size: 3rem;
+            color: var(--gold);
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .hero-center p {
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            color: #E6D5C3;
+        }
+
+        .btn-open {
+            background-color: var(--rust);
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-open:hover {
+            background-color: #8A4B2D;
+            transform: translateY(-2px);
+        }
+
+        /* Container & Sections */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(140, 109, 83, 0.2);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        .section-title p {
+            font-size: 1rem;
+            color: var(--accent);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Couple Section */
+        .couple-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .couple-flex {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+        }
+        @media(min-width: 768px) {
+            .couple-flex {
+                flex-direction: row;
+                justify-content: space-around;
+            }
+        }
+        .person img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--gold);
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .person h3 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        .person p {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        /* Event Details & Countdown */
+        .event-box {
+            background: #2C221E;
+            color: white;
+            border-radius: 15px;
+            padding: 50px 30px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            background-image: linear-gradient(rgba(44, 34, 30, 0.9), rgba(44, 34, 30, 0.9)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .event-box h3 {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        .event-info {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #E6D5C3;
+        }
+        .event-info strong {
+            color: white;
+        }
+
+        /* Countdown Timer */
+        .countdown-grid {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            border-radius: 10px;
+            padding: 15px 20px;
+            min-width: 80px;
+            backdrop-filter: blur(5px);
+        }
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .countdown-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #E6D5C3;
+            margin-top: 5px;
+        }
+
+        .map-btn {
+            background-color: var(--rust);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .map-btn:hover {
+            background-color: #8A4B2D;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 280px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Digital Envelope (Amplop Digital) */
+        .envelope-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .bank-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            text-align: center;
+            border-top: 5px solid var(--gold);
+        }
+        .bank-card h4 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        .bank-card p {
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        .account-number {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--rust);
+            margin: 15px 0;
+            letter-spacing: 1px;
+        }
+        .copy-btn {
+            background: var(--cream);
+            color: var(--primary);
+            border: 1px solid var(--accent);
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .copy-btn:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* RSVP & Wishes */
+        .form-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+        .form-control, .form-select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #D1C7BD;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            background: #FAF8F5;
+        }
+        .form-control:focus, .form-select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: white;
+        }
+        .btn-submit {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        .btn-submit:hover {
+            background: var(--dark);
+        }
+
+        /* Wishes List */
+        .wishes-list {
+            margin-top: 40px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        .wish-item {
+            background: #FAF8F5;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--gold);
+        }
+        .wish-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        .wish-name {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .wish-status {
+            font-size: 0.85rem;
+            padding: 2px 10px;
+            border-radius: 12px;
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+        .wish-status.no {
+            background: #FFEBEE;
+            color: #C62828;
+        }
+        .wish-message {
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            background: #2C221E;
+            color: #E6D5C3;
+        }
+        footer h2 {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        footer p {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Audio Player (Autoplay / Toggle) -->
+    <audio id="bg-music" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+        Browsermu tidak mendukung elemen audio.
+    </audio>
+
+    <div class="music-btn" id="music-toggle" onclick="toggleMusic()">
+        <i class="fa-solid fa-music"></i>
+    </div>
+
+    <!-- Hero / Cover Section -->
+    <header id="home">
+        <div class="hero-top">
+            <h4>The Wedding Of</h4>
+        </div>
+        <div class="hero-center">
+            <h1 class="couple-names">Arron <span class="script-amp">&amp;</span> Intan</h1>
+            <p><i class="fa-regular fa-calendar"></i> Minggu, 15 November 2026</p>
+            <a href="#invitation" class="btn-open" onclick="startExperience()">Buka Undangan</a>
+        </div>
+        <div style="font-size: 0.85rem; letter-spacing: 1px; opacity: 0.8;">
+            Tema: Rustic Autumn Pines
+        </div>
+    </header>
+
+    <div id="invitation"></div>
+
+    <!-- Couple Section -->
+    <div class="container">
+        <section id="couple">
+            <div class="section-title">
+                <p>Bahagia Bersama</p>
+                <h2>Mempelai Bahagia</h2>
+            </div>
+            <div class="couple-card">
+                <div class="couple-flex">
+                    <div class="person">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=500&q=80" alt="Arron">
+                        <h3>Arron</h3>
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <span class="script-font" style="font-size: 4rem; color: var(--gold);">&amp;</span>
+                    </div>
+                    <div class="person">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80" alt="Intan">
+                        <h3>Intan</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event & Countdown Section -->
+        <section id="event">
+            <div class="section-title">
+                <p>Waktu & Tempat</p>
+                <h2>Acara Pernikahan</h2>
+            </div>
+            <div class="event-box">
+                <h3>Akad & Resepsi</h3>
+                <div class="event-info">
+                    <p><strong>Hari, Tanggal:</strong> Minggu, 15 November 2026</p>
+                    <p><strong>Pukul:</strong> 10.00 WIB s.d. Selesai</p>
+                    <p style="margin-top: 15px;"><strong>Gedung Pernikahan Assembly Hall Menara Mandiri by IKK Indonesia</strong></p>
+                    <p>Jl. Jenderal Sudirman No.Kav 54-55, RT.5/RW.3, Senayan, Kec. Kby. Baru, Kota Jakarta Selatan, DKI Jakarta 12190</p>
+                </div>
+
+                <!-- Countdown Timer -->
+                <div class="countdown-grid">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-label">Hari</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">Jam</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">Menit</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">Detik</div>
+                    </div>
+                </div>
+
+                <a href="https://maps.app.goo.gl/AssemblyHallMenaraMandiri" target="_blank" class="map-btn">
+                    <i class="fa-solid fa-location-dot"></i> Buka Google Maps
+                </a>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery">
+            <div class="section-title">
+                <p>Momen Kebersamaan</p>
+                <h2>Galeri Prewedding</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80" alt="Prewedding 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=600&q=80" alt="Prewedding 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=600&q=80" alt="Prewedding 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=600&q=80" alt="Prewedding 4">
+                </div>
+            </div>
+        </section>
+
+        <!-- Digital Envelope (Amplop Digital) -->
+        <section id="envelope">
+            <div class="section-title">
+                <p>Tanda Kasih</p>
+                <h2>Amplop Digital</h2>
+            </div>
+            <p style="text-align: center; margin-bottom: 30px; color: var(--accent);">
+                Doa restu Anda merupakan karunia terindah bagi kami. Namun jika anda ingin memberikan tanda kasih secara cashless, dapat melalui:
+            </p>
+            <div class="envelope-container">
+                <div class="bank-card">
+                    <h4>Bank BCA</h4>
+                    <p>No. Rekening</p>
+                    <div class="account-number" id="acc1">1234567890</div>
+                    <p style="font-size: 0.9rem; color: var(--accent);">a.n. Arron</p>
+                    <button class="copy-btn" onclick="copyText('1234567890', this)">Salin No. Rekening</button>
+                </div>
+                <div class="bank-card">
+                    <h4>Bank Mandiri</h4>
+                    <p>No. Rekening</p>
+                    <div class="account-number" id="acc2">0987654321</div>
+                    <p style="font-size: 0.9rem; color: var(--accent);">a.n. Intan</p>
+                    <button class="copy-btn" onclick="copyText('0987654321', this)">Salin No. Rekening</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP & Wishes Section -->
+        <section id="rsvp">
+            <div class="section-title">
+                <p>Kehadiran & Doa</p>
+                <h2>Ucapan & Konfirmasi Kehadiran</h2>
+            </div>
+            <div class="form-card">
+                <form id="rsvp-form" onsubmit="submitWish(event)">
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" class="form-control" placeholder="Masukkan nama anda" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="attendance">Kesediaan Hadir</label>
+                        <select id="attendance" class="form-select" required>
+                            <option value="Hadir">Hadir (Datang Langsung)</option>
+                            <option value="Berhalangan">Berhalangan Hadir</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Ucapan & Doa Restu</label>
+                        <textarea id="message" rows="4" class="form-control" placeholder="Tuliskan ucapan atau doa untuk kedua mempelai..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Kirim Ucapan & Konfirmasi</button>
+                </form>
+
+                <div class="wishes-list" id="wishes-container">
+                    <div class="wish-item">
+                        <div class="wish-header">
+                            <span class="wish-name">Budi Santoso</span>
+                            <span class="wish-status">Hadir</span>
+                        </div>
+                        <div class="wish-message">Selamat menempuh hidup baru Arron & Intan! Semoga bahagia selalu hingga akhir masa.</div>
+                    </div>
+                    <div class="wish-item">
+                        <div class="wish-header">
+                            <span class="wish-name">Siti Rahma</span>
+                            <span class="wish-status no">Berhalangan</span>
+                        </div>
+                        <div class="wish-message">Mohon maaf berhalangan hadir karena ada keperluan luar kota. Doa terbaik untuk pernikahan kalian berdua!</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <h2 class="script-font">Arron &amp; Intan</h2>
+        <p>Terima Kasih Atas Doa &amp; Kehadiran Anda</p>
+        <p style="margin-top: 20px; font-size: 0.75rem; opacity: 0.6;">© 2026 Rustic Autumn Pines Wedding</p>
+    </footer>
+
+    <!-- JavaScript Scripts -->
+    <script>
+        // Audio Player Control & Autoplay trigger
+        const music = document.getElementById('bg-music');
+        const musicBtn = document.getElementById('music-toggle');
+        let isPlaying = false;
+
+        function startExperience() {
+            music.play().then(() => {
+                isPlaying = true;
+                musicBtn.classList.add('playing');
+            }).catch(e => {
+                console.log("Autoplay blocked, user interaction required.");
+            });
+        }
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                isPlaying = false;
+                musicBtn.classList.remove('playing');
+            } else {
+                music.play();
+                isPlaying = true;
+                musicBtn.classList.add('playing');
+            }
+        }
+
+        // Auto attempt play on load
+        window.addEventListener('load', () => {
+            music.play().then(() => {
+                isPlaying = true;
+                musicBtn.classList.add('playing');
+            }).catch(() => {
+                // Will play on first click/scroll interaction
+                document.body.addEventListener('click', function initAudio() {
+                    if (!isPlaying) {
+                        music.play();
+                        isPlaying = true;
+                        musicBtn.classList.add('playing');
+                    }
+                    document.body.removeEventListener('click', initAudio);
+                }, { once: true });
+            });
+        });
+
+        // Countdown Timer
+        const weddingDate = new Date("November 15, 2026 10:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = String(days).padStart(2, '0');
+            document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Copy Bank Account
+        function copyText(text, btnElement) {
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = btnElement.innerText;
+                btnElement.innerText = "Berhasil Disalin!";
+                btnElement.style.background = "var(--gold)";
+                btnElement.style.color = "white";
+                setTimeout(() => {
+                    btnElement.innerText = originalText;
+                    btnElement.style.background = "";
+                    btnElement.style.color = "";
+                }, 2000);
+            });
+        }
+
+        // Submit RSVP / Wish
+        function submitWish(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const attendance = document.getElementById('attendance').value;
+            const message = document.getElementById('message').value;
+
+            const container = document.getElementById('wishes-container');
+            const wishItem = document.createElement('div');
+            wishItem.className = 'wish-item';
+            
+            const isHadir = attendance === "Hadir";
+            wishItem.innerHTML = `
+                <div class="wish-header">
+                    <span class="wish-name">${escapeHtml(name)}</span>
+                    <span class="wish-status ${isHadir ? '' : 'no'}">${attendance}</span>
+                </div>
+                <div class="wish-message">${escapeHtml(message)}</div>
+            `;
+
+            container.prepend(wishItem);
+            document.getElementById('rsvp-form').reset();
+            alert("Terima kasih! Ucapan dan konfirmasi kehadiran Anda berhasil dikirim.");
+        }
+
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+        }
+    </script>
+</body>
+</html>
